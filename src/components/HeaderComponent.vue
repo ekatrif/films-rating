@@ -1,6 +1,6 @@
 <template>
   <header>
-    <h1>{{ title }}</h1>
+    <h1 class="display-5">{{ title }}</h1>
     <DateBlock></DateBlock>
   </header>
 </template>
