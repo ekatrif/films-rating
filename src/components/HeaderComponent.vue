@@ -1,7 +1,11 @@
 <template>
-  <header>
-    <h1 class="display-5">{{ title }}</h1>
-    <DateBlock></DateBlock>
+  <header class="container">
+    <div class="row">
+      <div class="col-8">
+        <h1 class="display-6">{{ title }}</h1>
+      </div>
+      <div class="col-4"><DateBlock></DateBlock></div>
+    </div>
   </header>
 </template>
 
@@ -20,7 +24,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-header {
+.row {
+  justify-content: space-between;
+  align-items: center;
+}
+/* header {
   display: flex;
   gap: 10px;
   justify-content: space-between;
@@ -29,5 +37,5 @@ header {
 }
 h1 {
   flex: 1 0 70%;
-}
+} */
 </style>

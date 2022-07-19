@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <table class="table table-striped">
       <TableHead></TableHead>
       <tbody>
@@ -8,12 +8,18 @@
           v-for="film in films"
           v-bind:key="film.id"
           v-bind:id="film.id"
-          v-bind:title="film.titleRus"
-        >
-          {{
-            film.titleRus
-          }}
-        </tr>
+          v-bind:titleRus="film.titleRus"
+          v-bind:titleOriginal="film.titleOriginal"
+          v-bind:year="film.year"
+          v-bind:ageRating="film.ageRating"
+          v-bind:genre="film.genre"
+          v-bind:country="film.country"
+          v-bind:time="film.time"
+          v-bind:voiceOver="film.voiceOver"
+          v-bind:subtitles="film.subtitles"
+          v-bind:slogan="film.slogan"
+          v-bind:image="film.image"
+        ></tr>
       </tbody>
     </table>
   </div>
@@ -31,8 +37,4 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-div {
-  margin: 20px 10px;
-}
-</style>
+<style scoped></style>

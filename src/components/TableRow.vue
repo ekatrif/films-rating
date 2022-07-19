@@ -1,18 +1,92 @@
 <template>
   <tr>
-    <th scope="row">{{ id }}</th>
-    <td>{{ title }}</td>
+    <td>{{ id }}</td>
+
+    <td v-on:click="showCard">
+      <div class="film-title" v-bind:class="{ active: isClicked }">
+        {{ titleRus }} ({{ year }})
+      </div>
+
+      <transition name="fade">
+        <FilmCard
+          v-bind:films="films"
+          v-show="isClicked"
+          v-bind:id="id"
+          v-bind:titleRus="titleRus"
+          v-bind:titleOriginal="titleOriginal"
+          v-bind:year="year"
+          v-bind:ageRating="ageRating"
+          v-bind:genre="genre"
+          v-bind:country="country"
+          v-bind:time="time"
+          v-bind:voiceOver="voiceOver"
+          v-bind:subtitles="subtitles"
+          v-bind:slogan="slogan"
+          v-bind:image="image"
+        ></FilmCard>
+      </transition>
+    </td>
+
     <td>Тут будет кнопка</td>
   </tr>
 </template>
 
 <script>
+import FilmCard from "./FilmCard.vue";
 export default {
   name: "TableRow",
-  props: ["id", "title"],
-  components: {},
+  props: [
+    "id",
+    "titleRus",
+    "titleOriginal",
+    "year",
+    "ageRating",
+    "genre",
+    "country",
+    "time",
+    "voiceOver",
+    "subtitles",
+    "slogan",
+    "image",
+  ],
+  components: { FilmCard },
+  data() {
+    return {
+      isClicked: false,
+    };
+  },
+  methods: {
+    showCard: function () {
+      this.isClicked = this.isClicked ? false : true;
+    },
+  },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style scoped>
+td:nth-child(2):hover {
+  cursor: pointer;
+  /* background-color: #2c3034;
+  color: #fff; */
+}
+.fade-enter-active,
+.fade-leave-active {
+  /* background-color: #2c3034;
+  color: #fff; */
+  transition: opacity 0.5s ease-out;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.film-title {
+  font-size: 100%;
+  transition: font-size 0.5s ease-out;
+}
+.active {
+  font-size: 150%;
+  transition: font-size 0.5s ease-out;
+}
+</style>
