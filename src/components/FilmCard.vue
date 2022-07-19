@@ -4,9 +4,7 @@
       <img v-bind:src="image" v-bind:alt="titleRus" />
     </div>
     <div class="film-card__info info">
-      <div class="info__original-title">
-        {{ titleOriginal }} {{ ageRating }}+
-      </div>
+      <div class="info__original-title">{{ titleOriginal }} {{ ageRating }}+</div>
       <div class="info__about-title">О фильме</div>
       <div class="info__about-content about">
         <div class="about__name">Год производства</div>
@@ -32,17 +30,13 @@
         <div class="about__name">Звуковые дорожки</div>
         <div class="about__value">
           <ul>
-            <li v-for="item in voiceOver" v-bind:key="item.title">
-              {{ item }}
-            </li>
+            <li v-for="item in voiceOver" v-bind:key="item.title">{{ item }}</li>
           </ul>
         </div>
         <div class="about__name">Субтитры</div>
         <div class="about__value">
           <ul>
-            <li v-for="item in subtitles" v-bind:key="item.title">
-              {{ item }}
-            </li>
+            <li v-for="item in subtitles" v-bind:key="item.title">{{ item }}</li>
           </ul>
         </div>
         <div class="about__name">Время</div>
@@ -56,20 +50,7 @@
 export default {
   name: "FilmCard",
 
-  props: [
-    "id",
-    "titleRus",
-    "titleOriginal",
-    "year",
-    "ageRating",
-    "genre",
-    "country",
-    "time",
-    "voiceOver",
-    "subtitles",
-    "slogan",
-    "image",
-  ],
+  props: ["id", "titleRus", "titleOriginal", "year", "ageRating", "genre", "country", "time", "voiceOver", "subtitles", "slogan", "image"],
   filters: {
     formatTime: function (timeMins) {
       if (timeMins < 60) {
@@ -77,7 +58,7 @@ export default {
       } else {
         let hours = Math.floor(timeMins / 60);
         let mins = timeMins - hours * 60;
-        return `/ ${hours} ч. ${mins} мин.`;
+        return `/ ${hours}ч. ${mins}мин.`;
       }
     },
   },
