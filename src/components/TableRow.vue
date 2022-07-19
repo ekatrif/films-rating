@@ -27,7 +27,9 @@
       </transition>
     </td>
 
-    <td>Тут будет кнопка</td>
+    <td>
+      <button type="button" class="btn btn-primary">Голосую за него!</button>
+    </td>
   </tr>
 </template>
 

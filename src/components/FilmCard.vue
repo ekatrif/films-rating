@@ -92,6 +92,7 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   gap: 3%;
+  margin-bottom: 60px;
 }
 .film-card__poster {
   margin-top: 3%;
@@ -120,7 +121,6 @@ export default {
   gap: 3%;
   font-size: 90%;
   line-height: 2;
-  margin-bottom: 10%;
 }
 .about__name {
   color: rgba(21, 25, 29, 0.7);
