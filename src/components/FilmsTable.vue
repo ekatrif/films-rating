@@ -6,6 +6,7 @@
         <tr
           is="table-row"
           v-for="film in films"
+          v-bind:films="films"
           v-bind:key="film.id"
           v-bind:id="film.id"
           v-bind:titleRus="film.titleRus"
@@ -19,6 +20,8 @@
           v-bind:subtitles="film.subtitles"
           v-bind:slogan="film.slogan"
           v-bind:image="film.image"
+          v-bind:rating="film.rating"
+          v-bind:currentNumber="films.indexOf(film) + 1"
         ></tr>
       </tbody>
     </table>
@@ -37,8 +40,4 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-table {
-  vertical-align: middle;
-}
-</style>
+<style scoped></style>

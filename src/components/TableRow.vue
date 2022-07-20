@@ -1,12 +1,8 @@
 <template>
   <tr>
-    <td>{{ id }}</td>
-
+    <td>{{ currentNumber }}</td>
     <td v-on:click="showCard">
-      <div class="film-title" v-bind:class="{ active: isClicked }">
-        {{ titleRus }} ({{ year }})
-      </div>
-
+      <div class="film-title" v-bind:class="{ active: isClicked }">{{ titleRus }} ({{ year }})</div>
       <transition name="fade">
         <FilmCard
           v-bind:films="films"
@@ -26,10 +22,10 @@
         ></FilmCard>
       </transition>
     </td>
-
     <td>
-      <button type="button" class="btn btn-primary">Голосую за него!</button>
+      <button type="button" class="btn btn-primary" v-on:click="sendVoice">Голосую за него!</button>
     </td>
+    <td>{{ rating }}</td>
   </tr>
 </template>
 
@@ -37,20 +33,7 @@
 import FilmCard from "./FilmCard.vue";
 export default {
   name: "TableRow",
-  props: [
-    "id",
-    "titleRus",
-    "titleOriginal",
-    "year",
-    "ageRating",
-    "genre",
-    "country",
-    "time",
-    "voiceOver",
-    "subtitles",
-    "slogan",
-    "image",
-  ],
+  props: ["films", "rating", "id", "titleRus", "titleOriginal", "year", "ageRating", "genre", "country", "time", "voiceOver", "subtitles", "slogan", "image", "currentNumber"],
   components: { FilmCard },
   data() {
     return {
@@ -58,9 +41,15 @@ export default {
     };
   },
   methods: {
+    sendVoice: function () {
+      this.$root.$emit("addVoiceToFilm", this.id);
+    },
     showCard: function () {
       this.isClicked = this.isClicked ? false : true;
     },
+  },
+  mounted: function () {
+    this.$emit("changeIndex");
   },
 };
 </script>
@@ -71,6 +60,10 @@ td:nth-child(2):hover {
   cursor: pointer;
   /* background-color: #2c3034;
   color: #fff; */
+}
+td:nth-child(3),
+td:nth-child(4) {
+  text-align: center;
 }
 .fade-enter-active,
 .fade-leave-active {
