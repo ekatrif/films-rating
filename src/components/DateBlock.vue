@@ -1,13 +1,13 @@
 <template>
   <div class="date-container">
-    <p class="lead">Сегодня 18 июля, понедельник</p>
+    <p class="lead">Сегодня {{ dayName }}</p>
   </div>
 </template>
 
 <script>
 export default {
   name: "DateBlock",
-  props: {},
+  props: ["dayName"],
 };
 </script>
 

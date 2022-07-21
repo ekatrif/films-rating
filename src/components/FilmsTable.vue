@@ -2,6 +2,7 @@
   <div class="container">
     <table class="table table-striped">
       <TableHead></TableHead>
+
       <tbody>
         <tr
           is="table-row"
@@ -40,4 +41,8 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style scoped>
+.container {
+  margin-top: 20px;
+}
+</style>

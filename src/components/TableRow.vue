@@ -23,7 +23,7 @@
       </transition>
     </td>
     <td>
-      <button type="button" class="btn btn-primary" v-on:click="sendVoice">Голосую за него!</button>
+      <button type="button" class="btn btn-primary btn-sm" v-on:click="sendVoice">Голосую за него!</button>
     </td>
     <td>{{ rating }}</td>
   </tr>
