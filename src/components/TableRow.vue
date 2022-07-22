@@ -1,5 +1,5 @@
 <template>
-  <tr>
+  <tr v-bind:class="{ liders: isLeader() }">
     <td>{{ currentNumber }}</td>
     <td v-on:click="showCard">
       <div class="film-title" v-bind:class="{ active: isClicked }">{{ titleRus }} ({{ year }})</div>
@@ -47,7 +47,11 @@ export default {
     showCard: function () {
       this.isClicked = this.isClicked ? false : true;
     },
+    isLeader: function () {
+      return this.films.length / 2 >= this.currentNumber ? true : false;
+    },
   },
+
   mounted: function () {
     this.$emit("changeIndex");
   },
@@ -83,5 +87,9 @@ td:nth-child(4) {
 .active {
   font-size: 150%;
   transition: font-size 0.5s ease-out;
+}
+
+.liders {
+  background-color: rgba(39, 245, 58, 0.15);
 }
 </style>

@@ -42,7 +42,9 @@ export default {
         if (a.rating < b.rating) return 1;
         return 0;
       }
-      this.selectedFilms.sort(compare);
+      setTimeout(() => {
+        this.selectedFilms.sort(compare);
+      }, 1000);
     });
   },
 
