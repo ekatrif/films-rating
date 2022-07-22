@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "WinnerTitle",
+  name: "WinnerFilm",
   props: [],
   components: {},
 };

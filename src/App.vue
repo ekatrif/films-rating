@@ -1,7 +1,7 @@
 <template>
   <div>
     <HeaderComponent v-on:dayChanged="updateDate" v-bind:dayName="dayName" v-bind:dayNumber="dayNumber" title="Что посмотреть в пятницу?" />
-    <WinnerTitle v-if="dayNumber === 5"></WinnerTitle>
+    <WinnerFilm v-if="dayNumber === 5"></WinnerFilm>
     <FilmsTable v-bind:films="sortedFilms"></FilmsTable>
   </div>
 </template>
@@ -9,12 +9,12 @@
 <script>
 import HeaderComponent from "./components/HeaderComponent.vue";
 import FilmsTable from "./components/FilmsTable.vue";
-import WinnerTitle from "./components/WinnerTitle.vue";
+import WinnerFilm from "./components/WinnerFilm.vue";
 
 export default {
   name: "App",
   data() {
-    return { films: [], dayNumber: 1, dayName: "18 июля, понедельник" }; //Первый день голосования - понедельник
+    return { films: [], dayNumber: 1, dayName: "18 июля, понедельник", filmsNumber: 16 }; //Первый день голосования - понедельник
   },
   async created() {
     try {
@@ -39,28 +39,14 @@ export default {
     updateDate: function () {
       this.dayNumber++;
       const days = ["18 июля, понедельник", "19 июля, вторник", "20 июля, среда", "21 июля, четверг", "22 июля, пятница"];
-      console.log(this.dayNumber);
       return (this.dayName = days[this.dayNumber - 1]);
     },
-  },
-
-  computed: {
     howManyShow: function () {
-      switch (this.dayNumber) {
-        case 1:
-          return 16;
-        case 2:
-          return 8;
-        case 3:
-          return 4;
-        case 4:
-          return 2;
-        case 5:
-          return 1;
-        default:
-          return 16;
-      }
+      this.filmsNumber = this.filmsNumber / 2;
+      return this.filmsNumber;
     },
+  },
+  computed: {
     sortedFilms: function () {
       function compare(a, b) {
         if (a.rating > b.rating) return -1;
@@ -69,14 +55,19 @@ export default {
       }
       if (this.films.length > 0) {
         let filmsArray = this.films.slice(0);
-        return filmsArray.sort(compare).slice(0, this.howManyShow);
-      } else return false;
+        if (this.dayNumber === 1) {
+          return filmsArray.sort(compare);
+        } else {
+          return filmsArray.sort(compare).slice(0, this.howManyShow());
+        }
+      }
+      return false;
     },
   },
   components: {
     HeaderComponent,
     FilmsTable,
-    WinnerTitle,
+    WinnerFilm,
   },
 };
 </script>
