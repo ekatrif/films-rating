@@ -76,9 +76,9 @@ export default {
   margin-bottom: 60px;
 }
 .film-card__poster {
-  margin-top: 3%;
-  margin-bottom: 3%;
-  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  max-width: 600px;
   height: auto;
 }
 .film-card__poster img {
@@ -90,8 +90,8 @@ export default {
   font-weight: 400;
 }
 .info__about-title {
-  margin-top: 6%;
-  margin-bottom: 3%;
+  margin-top: 25px;
+  margin-bottom: 15px;
   font-size: 120%;
   font-weight: 500;
 }

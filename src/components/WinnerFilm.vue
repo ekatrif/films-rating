@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>И.. наш победитель</h2>
+    <h2 class="display-5">И.. наш победитель!</h2>
     <div class="film-card">
       <div class="film-title">{{ films[0].titleRus }} ({{ films[0].year }})</div>
       <div class="film-card__poster">
@@ -72,7 +72,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 div {
-  margin-top: 20px;
+  margin-top: 40px;
   margin-bottom: 20px;
 }
 
@@ -81,6 +81,7 @@ h2 {
 }
 
 .film-title {
+  margin-top: 0;
   font-size: 150%;
 }
 
@@ -93,8 +94,8 @@ h2 {
   font-size: 120%;
 }
 .film-card__poster {
-  margin-top: 3%;
-  margin-bottom: 3%;
+  margin-top: 20px;
+  margin-bottom: 20px;
   width: 100%;
   height: auto;
 }
@@ -103,12 +104,13 @@ h2 {
   height: auto;
 }
 .info__original-title {
+  margin: 0;
   font-size: 120%;
   font-weight: 400;
 }
 .info__about-title {
-  margin-top: 6%;
-  margin-bottom: 3%;
+  margin-top: 25px;
+  margin-bottom: 15px;
   font-size: 120%;
   font-weight: 500;
 }
@@ -118,10 +120,17 @@ h2 {
   grid-template-rows: auto;
   gap: 3%;
   font-size: 90%;
-  line-height: 2;
+
+  line-height: 1;
 }
 .about__name {
   color: rgba(21, 25, 29, 0.7);
+  margin: 5px;
+  padding: 5px;
+}
+.about__value {
+  margin: 5px;
+  padding: 5px;
 }
 ul {
   padding: 0;
