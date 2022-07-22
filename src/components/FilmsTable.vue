@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <table class="table table-striped">
+    <WinnerFilm v-if="dayNumber === 5" v-bind:films="films"></WinnerFilm>
+    <table v-else class="table table-striped">
       <TableHead></TableHead>
-
       <tbody>
         <tr
           is="table-row"
@@ -32,11 +32,12 @@
 <script>
 import TableHead from "./TableHead.vue";
 import TableRow from "./TableRow.vue";
+import WinnerFilm from "./WinnerFilm.vue";
 
 export default {
   name: "FilmsTable",
-  props: ["films"],
-  components: { TableHead, TableRow },
+  props: ["films", "dayNumber"],
+  components: { TableHead, TableRow, WinnerFilm },
 };
 </script>
 

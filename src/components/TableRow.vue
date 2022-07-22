@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     sendVoice: function () {
-      this.$root.$emit("addVoiceToFilm", this.id);
+      this.$root.$emit("addVoiceToFilm", this.currentNumber - 1);
     },
     showCard: function () {
       this.isClicked = this.isClicked ? false : true;
