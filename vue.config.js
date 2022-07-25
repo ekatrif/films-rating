@@ -16,7 +16,7 @@ const imagePlugin = new ImageminPlugin({
     interlaced: true,
     optimizationLevel: 3,
   },
-  cacheFolder: path.join(__dirname, "./imageMinCache"),
+  cacheFolder: path.join(__dirname, "./dist/imageMinCache"),
 });
 
 module.exports = defineConfig({
