@@ -72,8 +72,8 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 3%;
-  margin-bottom: 60px;
+  gap: 20px;
+  margin-bottom: 20px;
 }
 .film-card__poster {
   margin-top: 20px;
@@ -84,6 +84,9 @@ export default {
 .film-card__poster img {
   width: 100%;
   height: auto;
+}
+.film-card__info {
+  height: 100%;
 }
 .info__original-title {
   font-size: 120%;
@@ -99,7 +102,7 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
-  gap: 3%;
+  gap: 20px;
   font-size: 90%;
   line-height: 2;
 }

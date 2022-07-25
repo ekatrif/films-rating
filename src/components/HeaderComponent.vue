@@ -1,11 +1,11 @@
 <template>
   <header class="container">
-    <div class="row">
+    <div class="row header-container">
       <div class="col-6">
         <h1 class="display-6">{{ title }}</h1>
       </div>
       <div class="col-4"><DateBlock v-bind:dayName="dayName"></DateBlock></div>
-      <div class="col-2"><button type="button" class="btn btn-outline-secondary" v-on:click="changeDay" v-bind:disabled="isLastDay">Завершить</button></div>
+      <div class="col-2 header-container__button"><button type="button" class="btn btn-outline-secondary" v-on:click="changeDay" v-bind:disabled="isLastDay">Завершить</button></div>
     </div>
   </header>
 </template>
@@ -33,18 +33,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.row {
+.header-container {
   justify-content: space-between;
   align-items: center;
 }
-/* header {
-  display: flex;
-  gap: 10px;
-  justify-content: space-between;
-  align-items: center;
-  margin: 10px;
+@media (max-width: 767px) {
+  .header-container__button {
+    width: auto;
+    margin-left: auto;
+  }
 }
-h1 {
-  flex: 1 0 70%;
-} */
 </style>
